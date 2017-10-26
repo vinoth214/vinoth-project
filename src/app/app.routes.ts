@@ -10,5 +10,6 @@ import { LoginPageComponent } from './vinoth-component/login-page/login-page.com
 export const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: LandingPageComponent } ,
-  { path: 'login',component:LoginPageComponent} 
+  { path: 'login',component:LoginPageComponent},
+  { path: 'sample',component:SampleFirstComponent}  
 ];
