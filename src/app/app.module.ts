@@ -1,24 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FacebookModule } from 'ngx-facebook';
 
 
 import { AppComponent } from './app.component';
 import { SampleFirstComponent } from './vinoth-component/sample-first/sample-first.component';
 import { routes } from './app.routes';
 import { LandingPageComponent } from './vinoth-component/landing-page/landing-page.component';
-import { LoginPageComponent } from './vinoth-component/login-page/login-page.component'
+import { LoginPageComponent } from './vinoth-component/login-page/login-page.component';
+import { DashBoardComponent } from './vinoth-component/dash-board/dash-board.component';
+import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     SampleFirstComponent,
     LandingPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    DashBoardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)     
+    RouterModule.forRoot(routes),
+    FacebookModule.forRoot()     
     
   ],
   exports: [RouterModule],
