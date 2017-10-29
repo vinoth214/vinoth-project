@@ -10,7 +10,9 @@ import { routes } from './app.routes';
 import { LandingPageComponent } from './vinoth-component/landing-page/landing-page.component';
 import { LoginPageComponent } from './vinoth-component/login-page/login-page.component';
 import { DashBoardComponent } from './vinoth-component/dash-board/dash-board.component';
-import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component'
+import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component';
+import { HeaderComponent } from './vinoth-component/header/header.component';
+import { FooterComponent } from './vinoth-component/footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component'
     LandingPageComponent,
     LoginPageComponent,
     DashBoardComponent,
-    SidebarComponent
+    SidebarComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
