@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FacebookModule } from 'ngx-facebook';
-
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { SampleFirstComponent } from './vinoth-component/sample-first/sample-first.component';
@@ -12,7 +12,8 @@ import { LoginPageComponent } from './vinoth-component/login-page/login-page.com
 import { DashBoardComponent } from './vinoth-component/dash-board/dash-board.component';
 import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component';
 import { HeaderComponent } from './vinoth-component/header/header.component';
-import { FooterComponent } from './vinoth-component/footer/footer.component'
+import { FooterComponent } from './vinoth-component/footer/footer.component';
+import { GoogleMapComponent } from './vinoth-component/google-map/google-map.component'
 
 @NgModule({
   declarations: [
@@ -23,12 +24,15 @@ import { FooterComponent } from './vinoth-component/footer/footer.component'
     DashBoardComponent,
     SidebarComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    GoogleMapComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FacebookModule.forRoot()     
+    FacebookModule.forRoot(),
+    AgmCoreModule.forRoot({ apiKey: 'AIzaSyB6c718w5I8H50nCf5h4cKJcKNNIJjiQ5s' })
+         
     
   ],
   exports: [RouterModule],
