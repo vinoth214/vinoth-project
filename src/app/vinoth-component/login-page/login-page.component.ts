@@ -1,32 +1,36 @@
   import { Component, OnInit } from '@angular/core';
 import { FacebookService, LoginResponse, LoginOptions, UIResponse, UIParams, FBVideoComponent,InitParams } from 'ngx-facebook';
 import { Router } from '@angular/router';
+import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import {HttpModule} from '@angular/http';
+
+
+import { DataService } from "../../service/service";
+import { AppConfig } from "../../config/config";
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
+  providers:[DataService,AppConfig]  
 })
 export class LoginPageComponent implements OnInit {
+  private _dataService: DataService;
+  private config: AppConfig;
 
-  constructor(private fb: FacebookService,public router: Router) {
+  constructor(private fb: FacebookService,public router: Router,_dataService: DataService,config: AppConfig) {
+
+    this._dataService = _dataService;
+    this.config = config;
     console.log('Initializing Facebook');
 
     fb.init({
       appId: '1927971220769787',
       version: 'v2.9'
     });
-
-
- 
-  //   fb.init(initParams);
-  //     this.fb.api('somepath')
-  // .then(res => console.log(res))
-  // .catch(e => console.log(e));
-  
-
    }
 
   ngOnInit() {
+    this.fetchSampleData()
   }
 
 
@@ -64,5 +68,18 @@ export class LoginPageComponent implements OnInit {
     console.error('Error processing action', error);
   }
   
+
+  public fetchSampleData(){
+    
+      this._dataService.httpGet(this.config.URLS.sample_json).subscribe(
+          data => {
+            let responseJson = data.json();
+            console.log("date scratch", responseJson);      
+          },
+          error => {       
+            return false;
+          }
+        );
+        }
 
 }

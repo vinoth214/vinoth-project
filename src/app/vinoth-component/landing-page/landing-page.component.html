@@ -4,23 +4,25 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <a class="navbar-brand" ><img src="./../assets/images/logo-Vcorp-white.png"  style="width:60px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" >About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Services</a>
+              <a class="nav-link" >Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" >Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" [routerLink]="['/login']">Login</a>
+              <!-- <a class="nav-link" [routerLink]="['/login']">Login</a> -->
+
+              <a class="nav-link" (click)="loginOpen()" >Login</a>
             </li>
           </ul>
         </div>
@@ -31,10 +33,10 @@
     <header class="intro-header">
       <div class="container">
         <div class="intro-message">
-          <h1>Landing Page</h1>
-          <h3>A Template by Start Bootstrap</h3>
-          <hr class="intro-divider">
-          <ul class="list-inline intro-social-buttons">
+          <h1>Welcome to Vcorp</h1>
+          <h3>Enjoy the SPA experience</h3>
+        
+          <!-- <ul class="list-inline intro-social-buttons">
             <li class="list-inline-item">
               <a href="#" class="btn btn-secondary btn-lg">
                 <i class="fa fa-twitter fa-fw"></i>
@@ -53,7 +55,7 @@
                 <span class="network-name">Linkedin</span>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </header>
@@ -189,3 +191,12 @@
       </div>
     </footer>
 
+
+
+
+    <div id="id01" class="modal">      
+      <form class="modal-content animate" >        
+        <span (click)="loginClose()" class="close" title="Close Modal">&times;</span>
+        <app-login-page></app-login-page>
+      </form>
+    </div>
