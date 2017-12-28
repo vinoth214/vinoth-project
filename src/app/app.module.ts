@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FacebookModule } from 'ngx-facebook';
 import { AgmCoreModule } from '@agm/core';
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
-import {HttpModule,JsonpModule} from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {HttpModule, JsonpModule} from '@angular/http';
 // import {ModalModule} from "ng2-modal";
 
 import { AppComponent } from './app.component';
@@ -17,7 +17,8 @@ import { SidebarComponent } from './vinoth-component/sidebar/sidebar.component';
 import { HeaderComponent } from './vinoth-component/header/header.component';
 import { FooterComponent } from './vinoth-component/footer/footer.component';
 import { GoogleMapComponent } from './vinoth-component/google-map/google-map.component';
-import { DataService } from "./service/service";
+import { DataService } from './service/service';
+import { AppConfig } from './config/config';
 
 
 @NgModule({
@@ -39,12 +40,10 @@ import { DataService } from "./service/service";
     AgmCoreModule.forRoot({ apiKey: 'AIzaSyB6c718w5I8H50nCf5h4cKJcKNNIJjiQ5s' }),
     HttpModule,
     JsonpModule
-    
-         
-    
+
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [DataService, AppConfig],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

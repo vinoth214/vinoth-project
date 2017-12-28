@@ -1,26 +1,27 @@
   import { Component, OnInit } from '@angular/core';
-import { FacebookService, LoginResponse, LoginOptions, UIResponse, UIParams, FBVideoComponent,InitParams } from 'ngx-facebook';
+import { FacebookService, LoginResponse, LoginOptions, UIResponse, UIParams, FBVideoComponent, InitParams } from 'ngx-facebook';
 import { Router } from '@angular/router';
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import {HttpModule} from '@angular/http';
 
 
-import { DataService } from "../../service/service";
-import { AppConfig } from "../../config/config";
+import { DataService } from '../../service/service';
+import { AppConfig } from '../../config/config';
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css'],
-  providers:[DataService,AppConfig]  
+  providers: [DataService, AppConfig]
 })
 export class LoginPageComponent implements OnInit {
-  private _dataService: DataService;
-  private config: AppConfig;
+  // private _dataService: DataService;
+  // private config: AppConfig;
 
-  constructor(private fb: FacebookService,public router: Router,_dataService: DataService,config: AppConfig) {
+  constructor(private fb: FacebookService, public router: Router,
+               private _dataService: DataService, private config: AppConfig, private _http: Http) {
 
-    this._dataService = _dataService;
-    this.config = config;
+    // this._dataService = _dataService;
+    // this.config = config;
     console.log('Initializing Facebook');
 
     fb.init({
@@ -30,9 +31,8 @@ export class LoginPageComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.fetchSampleData()
+    this.fetchSampleData();
   }
-
 
 // login() {
 //     this.fb.login()
@@ -67,19 +67,19 @@ export class LoginPageComponent implements OnInit {
   private handleError(error) {
     console.error('Error processing action', error);
   }
-  
 
-  public fetchSampleData(){
-    
+  public fetchSampleData() {
+
       this._dataService.httpGet(this.config.URLS.sample_json).subscribe(
           data => {
-            let responseJson = data.json();
-            console.log("date scratch", responseJson);      
+            const responseJson = data.json();
+            console.log('date scratch', responseJson);
           },
-          error => {       
-            return false;
+          error => {
+                        return false;
           }
         );
+
         }
 
 }
