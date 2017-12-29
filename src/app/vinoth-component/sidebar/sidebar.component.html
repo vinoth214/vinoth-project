@@ -7,11 +7,12 @@
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" (click)="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <a [routerLink]="['/dashBoard']"><img src="./../assets/images/logo-Vcorp.png"  style="width:90px"></a>
-  <!-- <span class="w3-bar-item w3-right">
-    <div class="w3-col s2">
-      <img src="./../assets/images/avatar2.png"  style="width:46px">
+  <span class="w3-bar-item w3-right">
+    <div class="w3-col s2" title="logout">
+        <a (click)="logout();"   [routerLink]="['/landing']"><i class="fa fa-power-off fa-6" aria-hidden="true"></i></a>
+      <!-- <img src="./../assets/images/avatar2.png"  style="width:46px"> -->
     </div>
-  </span> -->
+  </span>
 </div>
 
 <!-- Sidebar/menu -->

@@ -12,7 +12,6 @@ export class GoogleMapComponent implements OnInit {
 
   ngOnInit() {
 
-    
   }
 
 }
