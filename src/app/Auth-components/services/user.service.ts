@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
 
 import { User } from '../models/user';
 
 @Injectable()
 export class UserService {
-    constructor(private http: HttpClient) { }
+    constructor(private http: Http) { }
 
     getAll() {
-        return this.http.get<User[]>('/api/users');
+        return this.http.get('/users').map((response: Response) => response.json());
     }
 
-    getById(id: number) {
-        return this.http.get('/api/users/' + id);
+    getById(_id: string) {
+        return this.http.get('/users/' + _id).map((response: Response) => response.json());
     }
 
     create(user: User) {
-        return this.http.post('/api/users', user);
+        return this.http.post('/users/register', user);
     }
 
     update(user: User) {
-        return this.http.put('/api/users/' + user.id, user);
+        return this.http.put('/users/' + user._id, user);
     }
 
-    delete(id: number) {
-        return this.http.delete('/api/users/' + id);
+    delete(_id: string) {
+        return this.http.delete('/users/' + _id);
     }
 }
-

@@ -25,6 +25,7 @@ import { AlertService, AuthenticationService, UserService } from './Auth-compone
 import { AuthGuard } from './Auth-components/guards/auth.guard';
 import { LoginComponent } from './Auth-components/login/login.component';
 import { AlertComponent } from './Auth-components/alert/alert.component';
+import { customHttpProvider } from './Auth-components/helpers/custom-http';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AlertComponent } from './Auth-components/alert/alert.component';
               AuthenticationService,
               UserService,
               AuthGuard,
+              customHttpProvider,
             ],
   bootstrap: [AppComponent]
 })
